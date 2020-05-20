@@ -30,12 +30,21 @@ const morgan = require('morgan'); //requiriendo el modulo morgan.
 
 //settings
 app.set('appName', 'Mi primer server');
-app.set('views', __dirname,'views');
+app.set('views', __dirname + '/views');
 //+ __dirname + '/views
 
 console.log();
 
 app.set('view engine', 'ejs');
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false }));
+
+//Bootstrap
+app.use(express.static(__dirname + '/public'));
+
+
+
 
 //middlewares
 //app.use(morgan('combined'));
@@ -58,16 +67,30 @@ app.use((req,res,next) =>{
 //rutas a tratar
 
 app.get('/', (req, res) => {
-    res.render('./views/index.ejs');
+    res.render('index');
 });
 
 //res.end('Aqui va el login');
 app.get('/login', (req,res) => {
-    res.render('./views/login.ejs');
+    res.render('login');
 });
 
 app.get('/menu',(req,res) => {
-    res.render('./views/menu.ejs');
+    res.render('menu');
+});
+
+
+
+
+app.post('/login_handler', (req,res,next) =>{
+    const reqBody = req.body;
+    console.log(reqBody);
+
+    if(reqBody.password === "pancho"){
+        res.render('menu'); // res.send -> la vista manejara la respuesta
+    } else {
+        next();
+    }
 });
 
 //Esta ruta debe ser la uitlma del codigo!!
@@ -76,7 +99,22 @@ app.get('*', (req,res) => {
     res.end('Archivo no encontrado');
 });
 
+app.post('*', (req,res) => {
+    res.end('Archivo no encontrado');
+});
+
+
 app.listen(3000, () => {
     console.log('Servidor Funcionando');
     console.log('Nombre de la App: ' + app.get('appName'));
 });
+
+/*
+    app.use(express.static(path.join(__dirname, 'public')));
+    
+    Sirve todo el contenido que tenga addentro la carpeta public.
+    
+
+
+
+*/
