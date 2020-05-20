@@ -80,17 +80,30 @@ app.get('/menu',(req,res) => {
 });
 
 
-
-
 app.post('/login_handler', (req,res,next) =>{
     const reqBody = req.body;
     console.log(reqBody);
 
+    /*
+        Tratando de validar que se hayan llenado los campos.
+    */
+    if(!reqBody.username === '' || !reqBody.password === ''){
+        if(reqBody.username === 'franciscoignaciob2106@gmail.com' || reqBody.password === 'pancho'){
+            res.render('menu');
+        }
+    } else {
+        next();
+    }
+
+
+    //Forma anterior, la que deje echa con Japus.
+    /*
     if(reqBody.password === "pancho"){
         res.render('menu'); // res.send -> la vista manejara la respuesta
     } else {
         next();
     }
+    */
 });
 
 //Esta ruta debe ser la uitlma del codigo!!
@@ -111,10 +124,6 @@ app.listen(3000, () => {
 
 /*
     app.use(express.static(path.join(__dirname, 'public')));
-    
     Sirve todo el contenido que tenga addentro la carpeta public.
-    
-
-
 
 */
