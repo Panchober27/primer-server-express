@@ -1,18 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>MI primer server</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="public/centrado.css" rel="stylesheet" type="text/css"/>
 </head>
 
 
 
 <body>
-    <%-include ('partials/navigation.ejs')%>
-    <h3>Hola con express y nodeJS</h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Barra de navegacion</a>
+        </div>
+    </nav>
+    <br>
+    <a href="/login">Ir al Menu de Recorrido Virtual</a>
+    <div class="w-50 p-3" style="background-color: #eee;">Width 50%</div>
+    <br>
+    <section id="cover">
+        <div id="cover-caption">
+            <div id="container">
+                <div class="col-sm-10 col-sm offset-1">
+                    <h1 class="display-3">Bienvenido a la Intranet</h1>
+                    <div class="info-form">
+                        <form action="" class="form-inline">
+                            <div class="form-group">
+                                <label class="sr-only">Name</label>
+                                <input type="text" class="form-control" placeholder="ejemplo@gmail.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Email</label>
+                                <input type="password" class="form-control" placeholder="">
+                            </div>
+                            <button type="submit" class="btn btn-success ">Ingresar</button>
+                        </form>
+                    </div>
+                    <br>
 
-    <a href="/login">Ir al Login</a>
-    <a href="/menu">Ir al menu</a>
+                    <a href="#nav-main" class="btn btn-secondary-outline btn-sm" role="button">&darr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+
+    
+
+    <!--Mapa de Google-->>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.8294326826203!2d-70.54809678521805!3d-33.42769098078051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce8a6ac307cd%3A0x634c1990a0285a38!2sFuente%20Ovejuna%201869%2C%20Las%20Condes%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1590738728519!5m2!1ses!2scl"
+        width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+        tabindex="0"></iframe>
+    <br>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 
 </body>
+
 </html>

@@ -86,7 +86,7 @@ app.post('/login_handler', (req,res,next) =>{
 
     /*
         Tratando de validar que se hayan llenado los campos.
-    */
+    
     if(!reqBody.username === '' || !reqBody.password === ''){
         if(reqBody.username === 'franciscoignaciob2106@gmail.com' || reqBody.password === 'pancho'){
             res.render('menu');
@@ -94,16 +94,14 @@ app.post('/login_handler', (req,res,next) =>{
     } else {
         next();
     }
-
-
+    */
     //Forma anterior, la que deje echa con Japus.
-    /*
+    
     if(reqBody.password === "pancho"){
         res.render('menu'); // res.send -> la vista manejara la respuesta
     } else {
         next();
     }
-    */
 });
 
 //Esta ruta debe ser la uitlma del codigo!!
